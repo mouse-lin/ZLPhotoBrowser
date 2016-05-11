@@ -54,6 +54,10 @@ typedef void (^handler)(NSArray<UIImage *> *selectPhotos);
         _maxPreviewCount = 20;
         _arrayDataSources  = [NSMutableArray array];
         _arraySelectPhotos = [NSMutableArray array];
+      
+        [self.cancelBtn setTitle:ZL_Local(@"Cancel") forState:UIControlStateNormal];
+        [self.albumsBtn setTitle:ZL_Local(@"Albums") forState:UIControlStateNormal];
+      
         
         //注册实施监听相册变化
         [[PHPhotoLibrary sharedPhotoLibrary] registerChangeObserver:self];
@@ -108,7 +112,7 @@ typedef void (^handler)(NSArray<UIImage *> *selectPhotos);
 - (void)showAlertWithTitle:(NSString *)title message:(NSString *)message
 {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:ZL_Local(@"OK") style:UIAlertActionStyleDefault handler:nil];
     [alert addAction:action];
     [self.sender presentViewController:alert animated:YES completion:nil];
 }
@@ -127,7 +131,7 @@ typedef void (^handler)(NSArray<UIImage *> *selectPhotos);
     self.hidden = NO;
     self.baseView.hidden = NO;
     [self.arraySelectPhotos removeAllObjects];
-    [self.btnCamera setTitle:@"拍照" forState:UIControlStateNormal];
+    [self.btnCamera setTitle:ZL_Local(@"Photograph") forState:UIControlStateNormal];
     [self.btnCamera setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.collectionView setContentOffset:CGPointZero];
 }
@@ -179,7 +183,7 @@ typedef void (^handler)(NSArray<UIImage *> *selectPhotos);
         [self requestSelPhotos:nil];
     } else {
         if (![self judgeIsHaveCameraAuthority]) {
-            [self showAlertWithTitle:@"无法使用相机" message:@"请在iPhone的\"设置-隐私-相机\"中允许访问相机"];
+            [self showAlertWithTitle:ZL_Local(@"Can not use camera") message:ZL_Local(@"Access to the camera")];
             [self hide];
             return;
         }
@@ -237,7 +241,8 @@ typedef void (^handler)(NSArray<UIImage *> *selectPhotos);
 {
     if (_arraySelectPhotos.count >= self.maxSelectCount
         && btn.selected == NO) {
-        ShowToastLong(@"最多只能选择%ld张图片", self.maxSelectCount);
+        NSLog(@"%ld", self.maxSelectCount);
+        ShowToastLong(NSLocalizedStringFromTable(@"Select Maximun %ld pictures", @"PhotoBrowser", self.maxSelectCount));
         return;
     }
     
@@ -246,7 +251,7 @@ typedef void (^handler)(NSArray<UIImage *> *selectPhotos);
     if (!btn.selected) {
         [btn.layer addAnimation:GetBtnStatusChangedAnimation() forKey:nil];
         if (![[ZLPhotoTool sharePhotoTool] judgeAssetisInLocalAblum:asset]) {
-            ShowToastLong(@"该图片尚未从iCloud下载，请在系统相册中下载到本地后重新尝试，或在预览大图中加载完毕后选择");
+            ShowToastLong(ZL_Local(@"iCloud download error"));
             return;
         }
         ZLSelectPhotoModel *model = [[ZLSelectPhotoModel alloc] init];
@@ -269,10 +274,11 @@ typedef void (^handler)(NSArray<UIImage *> *selectPhotos);
 - (void)changeBtnCameraTitle
 {
     if (_arraySelectPhotos.count > 0) {
-        [self.btnCamera setTitle:[NSString stringWithFormat:@"确定(%ld)", _arraySelectPhotos.count] forState:UIControlStateNormal];
+      NSLog(@"%ld", _arraySelectPhotos.count);
+        [self.btnCamera setTitle:[NSString stringWithFormat:NSLocalizedStringFromTable(@"OK with %ld", @"PhotoBrowser", _arraySelectPhotos.count)] forState:UIControlStateNormal];
         [self.btnCamera setTitleColor:kRGB(19, 153, 231) forState:UIControlStateNormal];
     } else {
-        [self.btnCamera setTitle:@"拍照" forState:UIControlStateNormal];
+        [self.btnCamera setTitle:ZL_Local(@"Photograph") forState:UIControlStateNormal];
         [self.btnCamera setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     }
 }

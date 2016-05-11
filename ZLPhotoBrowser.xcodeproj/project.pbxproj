@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		71D0BDBF1CE2E14F00F49751 /* PhotoBrowser.strings in Resources */ = {isa = PBXBuildFile; fileRef = 71D0BDC11CE2E14F00F49751 /* PhotoBrowser.strings */; };
 		FD028BCD1CBE33BB009DD2FC /* ZLBigImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD028B9E1CBE33BB009DD2FC /* ZLBigImageCell.xib */; };
 		FD028BCE1CBE33BB009DD2FC /* ZLCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD028B9F1CBE33BB009DD2FC /* ZLCollectionCell.xib */; };
 		FD028BCF1CBE33BB009DD2FC /* ZLNoAuthorityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD028BA01CBE33BB009DD2FC /* ZLNoAuthorityViewController.xib */; };
@@ -51,6 +52,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		71D0BDC01CE2E14F00F49751 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/PhotoBrowser.strings; sourceTree = "<group>"; };
+		71D0BDC21CE2E19B00F49751 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/PhotoBrowser.strings"; sourceTree = "<group>"; };
+		71D0BDC31CE2E1A700F49751 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/PhotoBrowser.strings"; sourceTree = "<group>"; };
+		71D0BDC41CE2E1AE00F49751 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/PhotoBrowser.strings; sourceTree = "<group>"; };
+		71D0BDC51CE2E1BE00F49751 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/PhotoBrowser.strings; sourceTree = "<group>"; };
+		71D0BDC61CE2E1C400F49751 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/PhotoBrowser.strings; sourceTree = "<group>"; };
+		71D0BDC71CE2E1D200F49751 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/PhotoBrowser.strings; sourceTree = "<group>"; };
+		71D0BDC81CE2E1F700F49751 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PhotoBrowser.strings; sourceTree = "<group>"; };
 		FD028B9E1CBE33BB009DD2FC /* ZLBigImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZLBigImageCell.xib; sourceTree = "<group>"; };
 		FD028B9F1CBE33BB009DD2FC /* ZLCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZLCollectionCell.xib; sourceTree = "<group>"; };
 		FD028BA01CBE33BB009DD2FC /* ZLNoAuthorityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZLNoAuthorityViewController.xib; sourceTree = "<group>"; };
@@ -153,6 +162,7 @@
 				FD028BBC1CBE33BB009DD2FC /* ZLShowBigImgViewController.m */,
 				FD028BBD1CBE33BB009DD2FC /* ZLThumbnailViewController.h */,
 				FD028BBE1CBE33BB009DD2FC /* ZLThumbnailViewController.m */,
+				71D0BDC11CE2E14F00F49751 /* PhotoBrowser.strings */,
 			);
 			path = PhotoBrowser;
 			sourceTree = "<group>";
@@ -279,6 +289,12 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
+				"zh-Hant",
+				ja,
+				fr,
+				de,
+				ru,
 			);
 			mainGroup = FD0787141C0D45A200D17B97;
 			productRefGroup = FD07871E1C0D45A200D17B97 /* Products */;
@@ -311,6 +327,7 @@
 				FD028BF31CBE373F009DD2FC /* btn_original_circle@2x.png in Resources */,
 				FD028BCE1CBE33BB009DD2FC /* ZLCollectionCell.xib in Resources */,
 				FD028BCD1CBE33BB009DD2FC /* ZLBigImageCell.xib in Resources */,
+				71D0BDBF1CE2E14F00F49751 /* PhotoBrowser.strings in Resources */,
 				FD028BF01CBE373F009DD2FC /* btn_circle@2x.png in Resources */,
 				FD028BF11CBE373F009DD2FC /* btn_circle@3x.png in Resources */,
 				FD07872D1C0D45A200D17B97 /* Assets.xcassets in Resources */,
@@ -351,6 +368,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		71D0BDC11CE2E14F00F49751 /* PhotoBrowser.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				71D0BDC01CE2E14F00F49751 /* Base */,
+				71D0BDC21CE2E19B00F49751 /* zh-Hans */,
+				71D0BDC31CE2E1A700F49751 /* zh-Hant */,
+				71D0BDC41CE2E1AE00F49751 /* ja */,
+				71D0BDC51CE2E1BE00F49751 /* fr */,
+				71D0BDC61CE2E1C400F49751 /* de */,
+				71D0BDC71CE2E1D200F49751 /* ru */,
+				71D0BDC81CE2E1F700F49751 /* en */,
+			);
+			name = PhotoBrowser.strings;
+			sourceTree = "<group>";
+		};
 		FD0787291C0D45A200D17B97 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

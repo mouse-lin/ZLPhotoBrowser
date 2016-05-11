@@ -1,0 +1,23 @@
+/* 
+  PhotoBrowser.strings
+  ZLPhotoBrowser
+
+  Created by mouseshi on 16/5/11.
+  Copyright © 2016年 long. All rights reserved.
+*/
+
+"Loading Tip" = "Image Loading";
+"OK" = "OK";
+"Cancel"="Cancel";
+"Preview"= "Preview";
+"Photograph"= "Photograph";
+"Photo"="Photo";
+"All Photos"="All Photos";
+"Can not use camera"= "Can not use camera";
+"Processing"="Processing...";
+"Original"="Original";
+"Access to the camera"="Open iPhone's Settings - Privacy - Camera allowed access to the camera";
+"Select Maximun %ld pictures"="Only select a maximum %ld pictures";
+"iCloud download error"="The photo has not been downloaded from iCloud. Please try to re- select downloaded to the local system after the album or loaded in the preview after the big picture";
+"OK with %ld"="OK (%ld)";
+"Albums"="Albums";

@@ -103,7 +103,7 @@
     
     _btnOriginalPhoto = [UIButton buttonWithType:UIButtonTypeCustom];
     _btnOriginalPhoto.frame = CGRectMake(12, 7, 60, 30);
-    [_btnOriginalPhoto setTitle:@"原图" forState:UIControlStateNormal];
+    [_btnOriginalPhoto setTitle:ZL_Local(@"Original") forState:UIControlStateNormal];
     _btnOriginalPhoto.titleLabel.font = [UIFont systemFontOfSize:15];
     [_btnOriginalPhoto setTitleColor:kRGB(80, 180, 234) forState: UIControlStateNormal];
     [_btnOriginalPhoto setTitleColor:kRGB(80, 180, 234) forState: UIControlStateSelected];
@@ -126,7 +126,7 @@
     
     _btnDone = [UIButton buttonWithType:UIButtonTypeCustom];
     _btnDone.frame = CGRectMake(kViewWidth - 82, 7, 70, 30);
-    [_btnDone setTitle:@"确定" forState:UIControlStateNormal];
+    [_btnDone setTitle:ZL_Local(@"OK") forState:UIControlStateNormal];
     _btnDone.titleLabel.font = [UIFont systemFontOfSize:15];
     _btnDone.layer.masksToBounds = YES;
     _btnDone.layer.cornerRadius = 3.0f;
@@ -158,7 +158,7 @@
     if (self.arraySelectPhotos.count == 0) {
         PHAsset *asset = _arrayDataSources[_currentPage-1];
         if (![[ZLPhotoTool sharePhotoTool] judgeAssetisInLocalAblum:asset]) {
-            ShowToastLong(@"图片加载中，请稍后");
+            ShowToastLong(ZL_Local(@"Loading Tip"));
             return;
         }
         ZLSelectPhotoModel *model = [[ZLSelectPhotoModel alloc] init];
@@ -191,7 +191,8 @@
     if (_arraySelectPhotos.count >= self.maxSelectCount
         && btn.selected == NO) {
         [self getPhotosBytes];
-        ShowToastLong(@"最多只能选择%ld张图片", self.maxSelectCount);
+        NSLog(@"%ld", self.maxSelectCount);
+        ShowToastLong(NSLocalizedStringFromTable(@"Select Maximun %ld pictures", @"PhotoBrowser", self.maxSelectCount));
         return;
     }
     PHAsset *asset = _arrayDataSources[_currentPage-1];
@@ -199,7 +200,7 @@
         [btn.layer addAnimation:GetBtnStatusChangedAnimation() forKey:nil];
         
         if (![[ZLPhotoTool sharePhotoTool] judgeAssetisInLocalAblum:asset]) {
-            ShowToastLong(@"图片加载中，请稍后");
+            ShowToastLong(ZL_Local(@"Loading Tip"));
             return;
         }
         ZLSelectPhotoModel *model = [[ZLSelectPhotoModel alloc] init];
@@ -250,9 +251,10 @@
 - (void)changeBtnDoneTitle
 {
     if (self.arraySelectPhotos.count > 0) {
-        [_btnDone setTitle:[NSString stringWithFormat:@"确定(%ld)", self.arraySelectPhotos.count] forState:UIControlStateNormal];
+        NSLog(@"%ld", self.arraySelectPhotos.count);
+        [_btnDone setTitle:[NSString stringWithFormat:NSLocalizedStringFromTable(@"OK with %ld", @"PhotoBrowser", self.arraySelectPhotos.count)] forState:UIControlStateNormal];
     } else {
-        [_btnDone setTitle:@"确定" forState:UIControlStateNormal];
+        [_btnDone setTitle:ZL_Local(@"OK") forState:UIControlStateNormal];
     }
 }
 

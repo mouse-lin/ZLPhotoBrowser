@@ -19,6 +19,10 @@
 #define kZLPhotoBrowserSrcName(file) [@"ZLPhotoBrowser.bundle" stringByAppendingPathComponent:file]
 #define kZLPhotoBrowserFrameworkSrcName(file) [@"Frameworks/ZLPhotoBrowser.framework/ZLPhotoBrowser.bundle" stringByAppendingPathComponent:file]
 
+// 国际化定义
+#define kPHOTOBROWSER_LOCALIZABLE_TABLE @"PhotoBrowser"
+#define ZL_Local(key) NSLocalizedStringFromTable(key, kPHOTOBROWSER_LOCALIZABLE_TABLE, nil)
+
 #define kViewWidth      [[UIScreen mainScreen] bounds].size.width
 //如果项目中设置了导航条为不透明，即[UINavigationBar appearance].translucent=NO，那么这里的kViewHeight需要-64
 #define kViewHeight     [[UIScreen mainScreen] bounds].size.height

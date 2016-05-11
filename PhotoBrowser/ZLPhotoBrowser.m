@@ -25,7 +25,7 @@
     
     self.edgesForExtendedLayout = UIRectEdgeTop;
     
-    self.title = @"照片";
+    self.title = ZL_Local(@"Photo");
     
     _arrayDataSources = [NSMutableArray array];
     
@@ -41,9 +41,10 @@
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(0, 0, 40, 44);
     btn.titleLabel.font = [UIFont systemFontOfSize:16];
-    [btn setTitle:@"取消" forState:UIControlStateNormal];
+    [btn setTitle:ZL_Local(@"Cancel") forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(navRightBtn_Click) forControlEvents:UIControlEventTouchUpInside];
+    [btn sizeToFit];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
     self.navigationItem.hidesBackButton = YES;
 }
@@ -58,7 +59,7 @@
 {
     NSInteger i = 0;
     for (ZLPhotoAblumList *ablum in _arrayDataSources) {
-        if ([ablum.title isEqualToString:@"所有照片"]) {
+        if ([ablum.title isEqualToString:ZL_Local(@"All Photos")]) {
             i = [_arrayDataSources indexOfObject:ablum];
             break;
         }

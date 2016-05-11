@@ -33,7 +33,8 @@
     
     self.btnDone.layer.masksToBounds = YES;
     self.btnDone.layer.cornerRadius = 3.0f;
-    
+    [self.btnPreView setTitle:ZL_Local(@"Preview") forState:UIControlStateNormal];
+  
     [self resetBottomBtnsStatus];
     [self getOriginalImageBytes];
     [self initNavBtn];
@@ -63,7 +64,8 @@
         self.btnOriginalPhoto.enabled = YES;
         self.btnPreView.enabled = YES;
         self.btnDone.enabled = YES;
-        [self.btnDone setTitle:[NSString stringWithFormat:@"确定(%ld)", self.arraySelectPhotos.count] forState:UIControlStateNormal];
+        NSLog(@"%ld", self.arraySelectPhotos.count);
+        [self.btnDone setTitle:[NSString stringWithFormat:NSLocalizedStringFromTable(@"OK with %ld", @"PhotoBrowser", self.arraySelectPhotos.count)] forState:UIControlStateNormal];
         [self.btnOriginalPhoto setTitleColor:kRGB(80, 180, 234) forState:UIControlStateNormal];
         [self.btnPreView setTitleColor:kRGB(80, 180, 234) forState:UIControlStateNormal];
         self.btnDone.backgroundColor = kRGB(80, 180, 234);
@@ -72,7 +74,7 @@
         self.btnOriginalPhoto.enabled = NO;
         self.btnPreView.enabled = NO;
         self.btnDone.enabled = NO;
-        [self.btnDone setTitle:@"确定" forState:UIControlStateDisabled];
+        [self.btnDone setTitle:ZL_Local(@"OK") forState:UIControlStateDisabled];
         [self.btnOriginalPhoto setTitleColor:[UIColor colorWithWhite:0.7 alpha:1] forState:UIControlStateDisabled];
         [self.btnPreView setTitleColor:[UIColor colorWithWhite:0.7 alpha:1] forState:UIControlStateDisabled];
         self.btnDone.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1];
@@ -103,8 +105,9 @@
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(0, 0, 40, 44);
     btn.titleLabel.font = [UIFont systemFontOfSize:16];
-    [btn setTitle:@"取消" forState:UIControlStateNormal];
+    [btn setTitle:ZL_Local(@"Cancel") forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [btn sizeToFit];
     [btn addTarget:self action:@selector(navRightBtn_Click) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
     
@@ -117,7 +120,8 @@
 {
     if (_arraySelectPhotos.count >= self.maxSelectCount
         && btn.selected == NO) {
-        ShowToastLong(@"最多只能选择%ld张图片", self.maxSelectCount);
+        NSLog(@"%ld", self.maxSelectCount);
+        ShowToastLong(NSLocalizedStringFromTable(@"Select Maximun %ld pictures", @"PhotoBrowser", self.maxSelectCount));
         return;
     }
     
@@ -127,7 +131,7 @@
         //添加图片到选中数组
         [btn.layer addAnimation:GetBtnStatusChangedAnimation() forKey:nil];
         if (![[ZLPhotoTool sharePhotoTool] judgeAssetisInLocalAblum:asset]) {
-            ShowToastLong(@"该图片尚未从iCloud下载，请在系统相册中下载到本地后重新尝试，或在预览大图中加载完毕后选择");
+            ShowToastLong(ZL_Local(@"iCloud download error"));
             return;
         }
         ZLSelectPhotoModel *model = [[ZLSelectPhotoModel alloc] init];

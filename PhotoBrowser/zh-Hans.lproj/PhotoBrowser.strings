@@ -1,0 +1,22 @@
+/* 
+  PhotoBrowser.strings
+  ZLPhotoBrowser
+
+  Created by mouseshi on 16/5/11.
+  Copyright © 2016年 long. All rights reserved.
+*/
+"Loading Tip" = "图片加载中，请稍后";
+"OK" = "确定";
+"Cancel"="取消";
+"Preview"= "预览";
+"Photograph"= "拍照";
+"Photo"="照片";
+"All Photos"="所有照片";
+"Can not use camera"= "无法使用相机";
+"Processing"="正在处理...";
+"Original"="原图";
+"Access to the camera"="请在iPhone的\"设置-隐私-相机\"中允许访问相机";
+"Select Maximun %ld pictures"="最多只能选择%ld张图片";
+"iCloud download error"="该图片尚未从iCloud下载，请在系统相册中下载到本地后重新尝试，或在预览大图中加载完毕后选择";
+"OK with %ld"="确定(%ld)";
+"Albums"="相册";

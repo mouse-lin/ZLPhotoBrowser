@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -274,8 +274,10 @@
                 </mask>
             </variation>
             <connections>
+                <outlet property="albumsBtn" destination="osH-vp-iin" id="DgA-LK-UqQ"/>
                 <outlet property="baseView" destination="HdS-u6-pQg" id="5FV-qk-8n5"/>
                 <outlet property="btnCamera" destination="Nhw-8R-mPi" id="xKG-qa-xiU"/>
+                <outlet property="cancelBtn" destination="FBc-EH-uye" id="8Zn-GD-GEw"/>
                 <outlet property="collectionView" destination="KYl-HO-djn" id="zhm-al-rfV"/>
             </connections>
             <point key="canvasLocation" x="172" y="368"/>
